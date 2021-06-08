@@ -85,6 +85,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
             iguais os campos implementados na classe)
     >>> 3 - ERROS DE CORS
             Content Security Policy: As configurações da página bloquearam o carregamento de um recurso em http://127.0.0.1:5000/favicon.ico (“default-src”).
+    >>> 4 - Dificuldade em implementar o método POST
+            Como implementar o método post com flask e retornar os dados que foram armazenados
+            no banco através do postman?
+
 
 ## Links de pesquisa que ajudaram na construção
     como conectar o postgresql no flask - vídeo de ajuda
@@ -102,7 +106,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     https://www.youtube.com/watch?v=vWl5XcvQBx0&t=246s
 
     Código de ajuda do repositório Projeto_do_teste
+    https://sourcemaking.com/
     https://github.com/BlackCode7/Projeto_do_teste/blob/main/serve/app.py
+    https://code.tutsplus.com/pt/tutorials/building-restful-apis-with-flask-diy--cms-26625
+    https://blog.debugeverything.com/pt/programacao-em-python-aplicativo-flask/
+    https://neps.academy/br/blog/criando-uma-aplica%C3%A7%C3%A3o-web-com-flask---exemplo-simples---parte-1
+    
+Minuto 2:04:32
 
 ## Comandos usados na construção
 
