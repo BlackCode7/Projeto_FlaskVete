@@ -112,7 +112,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     https://blog.debugeverything.com/pt/programacao-em-python-aplicativo-flask/
     https://neps.academy/br/blog/criando-uma-aplica%C3%A7%C3%A3o-web-com-flask---exemplo-simples---parte-1
     
-Minuto 2:04:32
+    parte_1 >>> min -> 2:25:04
 
 ## Comandos usados na construção
 

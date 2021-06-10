@@ -4,12 +4,22 @@ from flask_restx import Namespace, Resource, fields
 
 from dtos.UsuarioDTO import ErroDTO
 
+# LoginController defini todas as rotas com a lib BluePrint() registra as rotas no main.py
+# from swagger.LoginModel import login_fields
+
 login_controller = Blueprint('login_controller', __name__)
-api = Namespace('Login', description='Realizar login na Aplicação')
-# trazendo os dados do banco para fazer o filtro
+
+api = Namespace('Login', description='Realizar login na applicação')
+
 login_fields = api.model('LoginDTO', {
     'login': fields.String,
     'senha': fields.String
+})
+
+user_fields = api.model('UsuárioDTO', {
+    'name': fields.String,
+    'email': fields.String,
+    'token': fields.String
 })
 
 
@@ -17,8 +27,9 @@ login_fields = api.model('LoginDTO', {
 class Login(Resource):
     """Tudo que for referente a rota /login o swagger ja implementa a documentação aqui"""
     @api.doc(response={200: 'Login realizado com sucesso!'})
-    @api.doc(response={400: 'Parâmetros de entrada inválidos!'})
+    @api.doc(response={400: 'Parâmetros de entrada inválidos!'}, body=login_fields)
     @api.doc(response={500: 'Não foi possível efetuar o login, tente novamente!'})
+    @api.response(200, 'Sucesso', user_fields)
     @api.expect(login_fields)
     def post(self):
         try:
@@ -30,3 +41,4 @@ class Login(Resource):
 
         except Exception as e:
             return Response(json.dumps(ErroDTO("Não foi possível efetuar o login, tente novamente", 500).__dict__), status=500, mimetype='application/json')
+
