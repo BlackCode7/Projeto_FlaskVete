@@ -13,10 +13,12 @@ app = Flask(__name__)
 CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/veterinariaDB'
 db = SQLAlchemy(app)
+
 api = Api(app, version='1.0', title='Api Clínica Veterinária',
           description='Aplicação para cadastro de pets de clínica veterinária.', doc='/docs')
 
 
+# modo de acessar os dados do banco postgres e outros bancos
 class VeterinariaLogin(db.Model):
     __tablename__ = "tabela_login"
     id = db.Column('id', db.Integer, primary_key=True)
