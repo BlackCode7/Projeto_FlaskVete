@@ -88,7 +88,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     >>> 4 - Dificuldade em implementar o método POST
             Como implementar o método post com flask e retornar os dados que foram armazenados
             no banco através do postman?
+    >>> 5 - Quando Este Erro Surgir:
+            
+            File "C:\Users\Usuario\Desktop\Projeto_FlaskVete\config.py", line 18, in <genexpr>
+            SECRET_KEY = ''.join(random.choice(gen) for i in range(32))
+            AttributeError: 'builtin_function_or_method' object has no attribute 'choice'
 
+            Solução:
+            Este é um erro clássico de importação errada! neste caso a importação
+            foi feita da lib random.random, mas a importação correta seria da lib
+            seria da lib random
+            
 
 ## Links de pesquisa que ajudaram na construção
     como conectar o postgresql no flask - vídeo de ajuda
