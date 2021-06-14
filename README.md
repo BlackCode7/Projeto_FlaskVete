@@ -122,7 +122,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     https://blog.debugeverything.com/pt/programacao-em-python-aplicativo-flask/
     https://neps.academy/br/blog/criando-uma-aplica%C3%A7%C3%A3o-web-com-flask---exemplo-simples---parte-1
     
-    parte_1 >>> min -> 2:25:04
+    
 
 ## Comandos usados na construção
 
@@ -141,3 +141,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     git branch -M main
     git push -u origin main
 
+    
+## Parada no tempo em que assisti ao vídeo
+    parte_3 >>> min -> 50:57 min >>> configuração de banco de dados na AWS
+                e conectando ela na aplicação python / flask
