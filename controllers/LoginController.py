@@ -31,9 +31,21 @@ class Login(Resource):
     def post(self):
         try:
             body = request.get_json()
-            if not body or "login" not in body or "senha" not in body:
+
+            erros = []
+
+            if not body:
+                erros.append("O body da requisição não pode estar vazio!")
+
+            if not "login" in body:
+                erros.append("O campo 'login' é obrigatório. ")
+
+            if not "senha" in body:
+                erros.append("O campo 'senha' é obrigatório")
+
+            if erros:
                 return Response(
-                    json.dumps(ErroDTO("Parâmetros de entrada inválidos", 400).__dict__),
+                    json.dumps(ErroDTO(400, erros).__dict__),
                     status=400,
                     imetype='application/json'
                     )

@@ -4,6 +4,12 @@ class UsuarioBaseDTO:
         self.email = email
 
 
+class UsuarioCreateDTO(UsuarioBaseDTO):
+    def __init__(self, nome, usuario, senha):
+        super().__init__(nome, usuario)
+        self.senha = senha
+
+
 # Conceito de herança
 class UsuarioLoginDTO(UsuarioBaseDTO):
     def __init__(self, nome, email, token):
