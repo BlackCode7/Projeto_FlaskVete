@@ -6,6 +6,7 @@ from flask_restx import Namespace, Resource, fields
 from dtos.ErroDTO import ErroDTO
 from dtos.UsuarioDTO import UsuarioBaseDTO, UsuarioCreateDTO
 from utils import Decorators
+from utils.Criptografia import criptografar_senha
 
 usuario_controller = Blueprint('usuario_controller', __name__)
 api = Namespace('Usuario')
@@ -70,12 +71,13 @@ class usuarioController(Resource):
 
 
             return Response(
-                json.dumps(UsuarioCreateDTO(body["nome"], body["email"], body["senha"]).__dict__),
+                json.dumps(UsuarioCreateDTO(body["nome"], body["email"], criptografar_senha(body["senha"])).__dict__),
                 status=201,
                 mimetype='application/json'
             )
 
         except Exception:
+
             return Response(
                 json.dumps(ErroDTO("Não foi possivel efetuar o login! Tente novamente", 500).__dict__),
                 status=500,
