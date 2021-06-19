@@ -143,5 +143,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
     
 ## Parada no tempo em que assisti ao vídeo
-    parte_3 >>> min -> 1:36:00 min >>> configuração de banco de dados na AWS
-                e conectando ela na aplicação python / flask
+    parte_3 >>> min -> 2:00:00 min >>> no vídeo o felipe teve difuldades em acessar o banco de dados
+                                       configurado na aws. Aqui na minha máquina
+                                       eu configurei um servidor local do MySQL
+                                       phpadmin vamos ver se funciona 

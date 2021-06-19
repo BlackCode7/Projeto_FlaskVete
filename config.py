@@ -18,4 +18,13 @@ gen = string.ascii_letters + string.digits + string.ascii_uppercase
 SECRET_KEY = ''.join(random.choice(gen) for i in range(32))
 
 
+# configuração do mysql
+MYSQL_PORT = '3306'
+MYSQL_HOST = 'localhost'
+MYSQL_USER = 'root'
+MYSQL_PASSWORD = 'xG4uChuzkF2XWaCt'
+#nome do banco de dados
+MYSQL_DATABASE = 'usuario'
+
+
 DEBUG = True

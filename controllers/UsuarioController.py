@@ -5,6 +5,7 @@ from flask_blueprint import Blueprint
 from flask_restx import Namespace, Resource, fields
 from dtos.ErroDTO import ErroDTO
 from dtos.UsuarioDTO import UsuarioBaseDTO, UsuarioCreateDTO
+from services.UsuarioService import UsuarioService
 from utils import Decorators
 from utils.Criptografia import criptografar_senha
 
@@ -17,6 +18,7 @@ user_fields = api.model(
         'email': fields.String,
     }
 )
+
 
 @api.route('/', methods=['GET'])
 class usuarioController(Resource):
@@ -69,6 +71,9 @@ class usuarioController(Resource):
                     imetype='application/json'
                 )
 
+            UsuarioService().criar_usuario(body["nome"],
+                                           body["email"],
+                                           criptografar_senha(body["senha"]))
 
             return Response(
                 json.dumps(UsuarioCreateDTO(body["nome"], body["email"], criptografar_senha(body["senha"])).__dict__),
