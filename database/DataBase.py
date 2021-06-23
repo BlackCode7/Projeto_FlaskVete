@@ -1,12 +1,10 @@
-# criando a classe de modelos com banco de dados
-# com sqlalchemy este é um ORM
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 import config
 
-SQLALCHEMY_DATABASE_URI = f'mysql-pymysql://{config.MYSQL_USER}:{config.MYSQL_PASSWORD}@{config.MYSQL_HOST}'
+SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost'
 
 engine = create_engine(
     #Passando a url

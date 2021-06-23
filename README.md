@@ -78,16 +78,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
         terminal => para instalção de algumas libs python flask
         postman  => para testar as rotas da aplicação
 
-## Dificuldades da aplicação
+## Log de Erros e Dificuldades da aplicação
+
     >>> 1 - Dificuldade em acertar a renderização dos dados json na tela
+    
     >>> 2 - dificuldade em acertar os dados do banco postgresql com a classe
             implementada no app.py (os campos do banco precisam ser estritamente
             iguais os campos implementados na classe)
+    
     >>> 3 - ERROS DE CORS
             Content Security Policy: As configurações da página bloquearam o carregamento de um recurso em http://127.0.0.1:5000/favicon.ico (“default-src”).
+    
     >>> 4 - Dificuldade em implementar o método POST
             Como implementar o método post com flask e retornar os dados que foram armazenados
             no banco através do postman?
+    
     >>> 5 - Quando Este Erro Surgir:
             
             File "C:\Users\Usuario\Desktop\Projeto_FlaskVete\config.py", line 18, in <genexpr>
@@ -98,7 +103,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
             Este é um erro clássico de importação errada! neste caso a importação
             foi feita da lib random.random, mas a importação correta seria da lib
             seria da lib random
+    
+    >>> 6 - Erro com banco de dados
+            sqlalchemy.exc.OperationalError: (MySQLdb._exceptions.OperationalError) (1045, 
+            "Access denied for user 'root'@'localhost' (using password: YES)")
+            (Background on this error at: http://sqlalche.me/e/14/e3q8)
+
+            Erros nos sequintes arquivos:
             
+            File "C:\Users\Usuario\Desktop\Projeto_FlaskVete\app.py", line 12, in 
+            <module> from controllers.UsuarioController import api as ns_usuario
+            
+            File "C:\Users\Usuario\Desktop\Projeto_FlaskVete\controllers\UsuarioController.py", line 8, in 
+            <module> from services.UsuarioService import UsuarioService
+
+            File "C:\Users\Usuario\Desktop\Projeto_FlaskVete\services\UsuarioService.py", 
+            line 1, in <module> from database.DataBase import SessionLocal
+
+            File "C:\Users\Usuario\Desktop\Projeto_FlaskVete\database\DataBase.py", 
+            line 17, in <module> engine.execute(f'CREATE DATABASE IF NOT EXISTS {config.MYSQL_DATABASE}')
+            File "<string>", line 2, in execute
+
 
 ## Links de pesquisa que ajudaram na construção
     como conectar o postgresql no flask - vídeo de ajuda
@@ -143,7 +168,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
     
 ## Parada no tempo em que assisti ao vídeo
-    parte_3 >>> min -> 2:00:00 min >>> no vídeo o felipe teve difuldades em acessar o banco de dados
-                                       configurado na aws. Aqui na minha máquina
-                                       eu configurei um servidor local do MySQL
-                                       phpadmin vamos ver se funciona 
+    parte_3 >>> min -> 2:19:50 min >>> Vamos configurar o arquivo LoginController.py
+                                       para tirar os dados mocados e colocar os dados 
+                                       verdadeiros que vem do banco MySQL  

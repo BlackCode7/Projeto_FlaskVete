@@ -6,6 +6,7 @@ from flask_restx import Namespace, Resource, fields
 from dtos.ErroDTO import ErroDTO
 from dtos.UsuarioDTO import UsuarioBaseDTO, UsuarioCreateDTO
 from services.UsuarioService import UsuarioService
+from services.UsuarioService import UsuarioService
 from utils import Decorators
 from utils.Criptografia import criptografar_senha
 
@@ -14,7 +15,7 @@ api = Namespace('Usuario')
 
 user_fields = api.model(
     'UsuarioBaseDTo', {
-        'nome':fields.String,
+        'nome': fields.String,
         'email': fields.String,
     }
 )
@@ -71,14 +72,25 @@ class usuarioController(Resource):
                     imetype='application/json'
                 )
 
-            UsuarioService().criar_usuario(body["nome"],
+            usuario_criado = UsuarioService().criar_usuario(body["nome"],
                                            body["email"],
                                            criptografar_senha(body["senha"]))
 
+            # Validadno usuario criado
+            if not usuario_criado:
+                return Response(
+                    json.dumps(ErroDTO(400, 'E-mail já cadastrado no sistema.').__dict__),
+                    status=400,
+                    mimetype='application/json'
+                )
+
             return Response(
-                json.dumps(UsuarioCreateDTO(body["nome"], body["email"], criptografar_senha(body["senha"])).__dict__),
-                status=201,
-                mimetype='application/json'
+                json.dumps(UsuarioCreateDTO(usuario_criado.id,
+                                            usuario_criado.nome,
+                                            usuario_criado.email,
+                                            usuario_criado.senha).__dict__),
+                                            status=201,
+                                            mimetype='application/json'
             )
 
         except Exception:
